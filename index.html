@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="flex justify-center items-center min-h-[100vh] flex-col">
+
+    <div class="colors flex p-4 pointer-events-none select-none">
+        <!-- Cores serão geradas aqui -->
+      </div>
+    <div class="canva flex flex-wrap mx-auto w-[1030px] h-auto border-2 border-black rounded
+    justify-center items-center select-none">
+
+    </div>
+    <div class="flex">
+        <button class="clear p-2 px-4 border-2 border-black rounded mt-6 hover:bg-gray-100 mx-2">
+            Limpar
+        </button>
+        <button class="disable-grid p-2 px-4 border-2 border-black rounded mt-6 hover:bg-gray-100 mx-2">
+            Desabilitar grid
+        </button>
+    </div>
+    <script>
+        const colors = [
+          { name: "Red", hex: "#ef4444", tailwindClass: "bg-red-500" },
+          { name: "Blue", hex: "#3b82f6", tailwindClass: "bg-blue-500" },
+          { name: "Green", hex: "#22c55e", tailwindClass: "bg-green-500" },
+          { name: "Yellow", hex: "#eab308", tailwindClass: "bg-yellow-500" },
+          { name: "Purple", hex: "#a855f7", tailwindClass: "bg-purple-500" },
+          { name: "Pink", hex: "#ec4899", tailwindClass: "bg-pink-500" },
+          { name: "Gray", hex: "#E5E7EB", tailwindClass: "bg-gray-200" },
+          { name: "Orange", hex: "#f97316", tailwindClass: "bg-orange-500" },
+          { name: "Teal", hex: "#14b8a6", tailwindClass: "bg-teal-500" },
+          { name: "Indigo", hex: "#6366f1", tailwindClass: "bg-indigo-500" },
+        ];
+        const canvaColors = document.querySelector(".colors");
+        colors.forEach(color => {
+          const div = document.createElement("div");
+          div.classList.add("w-[30px]", "h-[30px]", "rounded", "mx-2", "shadow-md", "color", 
+          "text-transparent", color.tailwindClass);
+          div.innerHTML = `${color.hex}`;
+          canvaColors.appendChild(div);
+        });
+    </script>
+    <script src="script.js"></script>
+
+</body>
+</html>
