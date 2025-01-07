@@ -11,17 +11,17 @@ let pColor = "#6b7280";
 let block = null;
 function createCanva() {
     if(grid) {
-        for(let i=0;i<820;i++) {
+        for(let i=0;i<5202;i++) {
             let obj = document.createElement("div");
             // obj.classList.add(`el-${i}`);
-            obj.classList.add("g-block", "w-[25px]", "h-[25px]", "border", `hover:bg-[${color}]`);
+            obj.classList.add("g-block", "w-[10px]", "h-[10px]", "border", `hover:bg-[${color}]`);
             canva.appendChild(obj);
         }
     }else {
-        for(let i=0;i<820;i++) {
+        for(let i=0;i<5202;i++) {
             let obj = document.createElement("div");
             // obj.classList.add(`el-${i}`);
-            obj.classList.add("g-block", "w-[25px]", "h-[25px]", `hover:bg-[${color}]`);
+            obj.classList.add("g-block", "w-[10px]", "h-[10px]", `hover:bg-[${color}]`);
             canva.appendChild(obj);
         }
     }
@@ -53,14 +53,29 @@ function blockFuntions() {
                         b.classList.remove(b.classList.item(0));
                     }
                     if(grid) {
-                        b.classList.add("g-block", "w-[25px]", "h-[25px]", "border", `hover:bg-[${color}]`, `bg-[${color}]`);
+                        b.classList.add("g-block", "w-[10px]", "h-[10px]", "border", `hover:bg-[${color}]`, `bg-[${color}]`);
                     }else {
-                        b.classList.add("g-block", "w-[25px]", "h-[25px]", `hover:bg-[${color}]`, `bg-[${color}]`);
+                        b.classList.add("g-block", "w-[10px]", "h-[10px]", `hover:bg-[${color}]`, `bg-[${color}]`);
                     }
                 }
                 if(cursorMode == "eraser") {
                     b.classList.remove(`bg-[${color}]`);
                 }
+            }
+        });
+        b.addEventListener("click", ()=> {
+            if(cursorMode == "paint") {
+                while (b.classList.length > 0) {
+                    b.classList.remove(b.classList.item(0));
+                }
+                if(grid) {
+                    b.classList.add("g-block", "w-[10px]", "h-[10px]", "border", `hover:bg-[${color}]`, `bg-[${color}]`);
+                }else {
+                    b.classList.add("g-block", "w-[10px]", "h-[10px]", `hover:bg-[${color}]`, `bg-[${color}]`);
+                }
+            }
+            if(cursorMode == "eraser") {
+                b.classList.remove(`bg-[${color}]`);
             }
         });
         b.addEventListener("mousedown", ()=> {
