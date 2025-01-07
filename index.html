@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>Paint</title>
 </head>
 <body class="flex justify-center items-center min-h-[100vh] flex-col">
 
-    <div class="colors flex p-4 pointer-events-none select-none">
+    <div class="colors flex p-4 select-none">
         <!-- Cores serão geradas aqui -->
       </div>
     <div class="canva flex flex-wrap mx-auto w-[1030px] h-auto border-2 border-black rounded
@@ -31,7 +31,7 @@
           { name: "Yellow", hex: "#eab308", tailwindClass: "bg-yellow-500" },
           { name: "Purple", hex: "#a855f7", tailwindClass: "bg-purple-500" },
           { name: "Pink", hex: "#ec4899", tailwindClass: "bg-pink-500" },
-          { name: "Gray", hex: "#E5E7EB", tailwindClass: "bg-gray-200" },
+          { name: "Gray", hex: "#6b7280", tailwindClass: "bg-gray-500" },
           { name: "Orange", hex: "#f97316", tailwindClass: "bg-orange-500" },
           { name: "Teal", hex: "#14b8a6", tailwindClass: "bg-teal-500" },
           { name: "Indigo", hex: "#6366f1", tailwindClass: "bg-indigo-500" },
@@ -40,7 +40,7 @@
         colors.forEach(color => {
           const div = document.createElement("div");
           div.classList.add("w-[30px]", "h-[30px]", "rounded", "mx-2", "shadow-md", "color", 
-          "text-transparent", color.tailwindClass);
+          "text-transparent", color.tailwindClass, "cursor-pointer");
           div.innerHTML = `${color.hex}`;
           canvaColors.appendChild(div);
         });
